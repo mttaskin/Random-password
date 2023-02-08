@@ -40,3 +40,28 @@ const passwordClick = () => {
     // 1 lowerCase
     const x = Math.floor(Math.random() * lowerCase.length)
     password.push(lowerCase[x]);
+
+    // 3 numbers
+    for (let i = 0; i < 3; i++) {
+        const y = Math.floor(Math.random() * numbers.length);
+        password.push(numbers[y]);
+    };
+
+    // 3 other upperCase or lowerCase
+    for (let i = 0; i < 3; i++) {
+        const z = Math.floor(Math.random() * p.length);
+        password.push(p[z]);
+    };
+
+   const sortPassword = (str) =>
+      [...str].sort(() => Math.random() - 0.4).join("");
+
+      const passwordNew = sortPassword(password);
+
+   text.innerText = passwordNew;
+    return;  
+};
+
+button.addEventListener('click', (e) => {
+    passwordClick();
+});
